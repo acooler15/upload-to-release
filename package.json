@@ -2,7 +2,10 @@
   "name": "upload-to-release",
   "version": "1.0.0",
   "description": "A GitHub Action that uploads a file to a new release.",
-  "main": "lib/main.js",
+  "main": "src/main.js",
+  "scripts": {
+    "build": "ncc build --source-map -o dist"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Shopify/upload-to-release.git"
@@ -15,7 +18,10 @@
   "author": "Shopify",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.6",
-    "@actions/github": "^1.1.0"
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.1"
   }
 }
