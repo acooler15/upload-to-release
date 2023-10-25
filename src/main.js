@@ -44,7 +44,15 @@ async function run() {
     }
     const file = fs.createReadStream(path)
     // console.log(octokit.rest.users.getAuthenticated())
-    const { data: { browser_download_url: browser_download_url }} = await octokit.rest.repos.uploadReleaseAsset({url, headers, name, file})
+    const { data: { browser_download_url: browser_download_url }} = await octokit.rest.repos.uploadReleaseAsset({
+      owner: owner,
+      repo: repo,
+      release_id: release_id,
+      name: name,
+      data: file,
+      origin: url,
+      headers: headers
+    })
     console.log(`Download URL: ${browser_download_url}`)
   } catch (error) {
     core.setFailed(error.message);
