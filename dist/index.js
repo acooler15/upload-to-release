@@ -30140,9 +30140,7 @@ async function run() {
       repo: repo,
       release_id: release_id,
       name: name,
-      data: file,
-      origin: url,
-      headers: headers
+      data: file
     })
     console.log(`Download URL: ${browser_download_url}`)
   } catch (error) {
