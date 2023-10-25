@@ -30122,7 +30122,7 @@ async function run() {
 
     const { data: { upload_url: url } } = await octokit.rest.repos.getRelease({owner, repo, release_id})
     console.log(`Upload URL: ${url}`)
-    const { data: assets } = await octokit.rest.repos.listAssetsForRelease({owner, repo, release_id})
+    const { data: assets } = await octokit.rest.repos.listReleaseAssets({owner, repo, release_id})
     assets.filter(asset => asset).forEach(({ id: asset_id, name: asset_name }) => {
         if (asset_name == name) {
             octokit.rest.repos.deleteReleaseAsset({owner, repo, asset_id})
